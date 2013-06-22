@@ -4,13 +4,8 @@
 	if (isset($_SESSION["AUTH_USER"])) {
 		header("Location: index.php");
 	}
+	include('header.php');
 ?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-<html>
-	<head>
-		<title> Authorization For Security </title>
 		<script type="text/javascript">
 			function submitForm() {
 				xmlhttp = new XMLHttpRequest();
@@ -21,19 +16,36 @@
 				xmlhttp.send("requestType=login&username=" + username + "&password=" + password);
 			}
 		</script>
-	</head>
-
-	<body>
-		<form name="authorization" id="testid" >
-			USERNAME :
-			<input type="text" name="username" id = "txt_username"/>
-			<br />
-			PASSWORD :
-			<input type="password" name="password" id="txt_password" />
-			<br />
-			<input type="button" onclick="submitForm();" value="Submit"/>
-			<input type="reset" />
-		</form>
+		<div class="row-fluid">
+			<div class="span4 offset3" style="background: #B3B3B3">
+				<center style="font-size: 18;font-weight: bold">LOGIN</center>
+				<div class="row-fluid">
+					<div class="span4" >
+						<input type="text" id="login_username"  name="username" title="Username" autocomplete="on" tabindex="1" placeholder="Username"/>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4">
+						<input type="password" id="login_password"  name="password" title="Password" autocomplete="on" tabindex="1" placeholder="Password"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" >
+			<div class="span 4 offset 3">
+				<form name="authorization" id="testid" >
+					USERNAME :
+					<input type="text" name="username" id = "txt_username"/>
+					<br />
+					PASSWORD :
+					<input type="password" name="password" id="txt_password" />
+					<br />
+					<input type="button" onclick="submitForm();" value="Submit"/>
+					<input type="reset" />
+				</form>
+			</div>
+		</div>
 		<?php
 			var_dump($_SESSION);
 		?>

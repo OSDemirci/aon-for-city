@@ -1,4 +1,8 @@
 <?php
+	#DBUSER webuser
+	#DBPASSWORD DNM6NPBwjRAdRP
+
+
 	if ($_GET["requestType"] == "login") {
 		if ($_GET["username"] == "TEST" && $_GET["password"] == "PASSWORD") {
 			session_start();
