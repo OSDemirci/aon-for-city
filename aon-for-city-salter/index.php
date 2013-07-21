@@ -6,10 +6,8 @@ $password="";
 $db = "Aon4CitySalter";
 $trustedServers = array('127.0.0.1');
 
-
-
-if (in_array($_SERVER['REMOTE_ADDR'],$trustedServers)){
-	header('HTTP/1.0 404 Not Found');
+if (!in_array($_SERVER['REMOTE_ADDR'],$trustedServers)){
+	header("HTTP/1.0 500 Internal Server Error");
 }
 else if($_GET["TYPE"] == "GET"){
 	echo getHash($_GET["UID"],$_GET["PHRASE"]);
@@ -71,6 +69,7 @@ function iterativeSaltedHash($phrase,$salt){
 	for ($i=0; $i < 1000000; $i++) { 
 		if($i%20 == 0){
 			$hashed = $hashed ^ $salt;
+			$salt = md5($salt);
 		}
 		$hashed = md5($hashed);
 	}
