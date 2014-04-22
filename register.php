@@ -88,7 +88,7 @@
 	}
 
 	function testPassword(password){
-		return (/[a-z]/.test(password) && /[A-Z]/.test(password) && /[0-9]/.test(password) && password.length > 12 );
+		return (/[a-z]/.test(password) && /[A-Z]/.test(password) && /[0-9]/.test(password) && password.length >= 12 );
 	}
 </script>
 <input type="hidden" id="reg_cpcd"  value="<?php echo $captchaD ?>"/>

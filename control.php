@@ -72,7 +72,7 @@
 			unset($_SESSION["unlocked"]);
 			session_unset();
 			session_destroy();
-			//¡Adiós! Mi amigo.
+			//¡Adiós! Amigo.
 			}
 		}
 	}else if(isset($_POST["requestType"]) && $_POST["requestType"] == "unlock"){
